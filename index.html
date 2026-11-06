@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0B1F3A">
+<title>نظام خدمة إعداد الخدام - كنيسة السيدة العذراء وماريوحنا الحبيب - فيصل</title>
+
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230B1F3A'/%3E%3Ctext x='32' y='43' font-size='38' text-anchor='middle' fill='%23C9A227'%3E%E2%98%A9%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgZmlsbD0iIzBCMUYzQSIgcng9IjI0Ii8+PHRleHQgeD0iOTYiIHk9IjEyMCIgZm9udC1zaXplPSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNDOUEyMjciPuKYqTwvdGV4dD48L3N2Zz4=">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<script type="importmap">
+{
+  "imports": {
+    "firebase/app": "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js",
+    "firebase/firestore": "https://www.gstatic.com/firebasejs/13.2.0/firebase-firestore.js",
+    "firebase/auth": "https://www.gstatic.com/firebasejs/13.2.0/firebase-auth.js",
+    "firebase/analytics": "https://www.gstatic.com/firebasejs/13.2.0/firebase-analytics.js"
+  }
+}
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+    <span class="icon">☩</span>
+    <span>نظام خدمة إعداد الخدام<br><small>كنيسة السيدة العذراء وماريوحنا الحبيب - فيصل</small></span>
+  </div>
+  <nav id="mainNav">
+    <button data-page="home" class="active">الرئيسية</button>
+    <button data-page="login" id="navLoginBtn">تسجيل الدخول</button>
+    <button data-page="dashboard" id="navDashBtn" class="hidden">لوحة التحكم</button>
+    <button id="navLogoutBtn" class="hidden">خروج</button>
+  </nav>
+</header>
+
+<div class="fb-status syncing" id="fbStatus">⏳ جارٍ الاتصال...</div>
+
+<div class="app-layout" id="appLayout">
+  <aside class="sidebar hidden" id="sidebar"><nav id="sideNav"></nav></aside>
+  <main class="container" id="appContainer"></main>
+</div>
+
+<footer style="background: var(--navy); color: rgba(245, 241, 230, 0.7); text-align: center; padding: 16px; font-size: 0.82rem; margin-top: auto; border-top: 3px solid var(--gold);">
+  <span style="color: var(--gold);">☩</span> نظام خدمة إعداد الخدام - كنيسة السيدة العذراء وماريوحنا الحبيب - فيصل &copy; 2026
+</footer>
+
+<div class="pwa-banner" id="pwaBanner">
+  <h4>📲 تثبيت التطبيق</h4>
+  <p>ثبّت نظام إعداد الخدام على جهازك للوصول السريع</p>
+  <div class="pwa-banner-actions">
+    <button class="pwa-install-btn" onclick="installPWA()">تثبيت</button>
+    <button class="pwa-dismiss-btn" onclick="dismissPWA()">لاحقاً</button>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay"><div class="modal" id="modalContent"></div></div>
+<div class="toast-container" id="toastContainer"></div>
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner"></div>
+  <p id="loadingText">جارٍ التحميل...</p>
+</div>
+
+
+<script type="module" src="./script.js"></script>
+</body>
+</html>  
